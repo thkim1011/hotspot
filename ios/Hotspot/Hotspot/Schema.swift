@@ -9,10 +9,11 @@
 import Foundation
 
 struct Datapoint : Codable {
-    var x : Double
-    var y : Double
+    var xpos : Double
+    var ypos : Double
     var lat: Double
     var lon: Double
     var ssid: String
     var strength: Double
+    var time: Double
 }

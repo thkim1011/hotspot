@@ -15,6 +15,7 @@
 		FB4EC9CD214D6311004C4849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4EC9CC214D6311004C4849 /* Assets.xcassets */; };
 		FB4EC9D0214D6311004C4849 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4EC9CE214D6311004C4849 /* LaunchScreen.storyboard */; };
 		FB4EC9D8214D6357004C4849 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB4EC9D7214D6357004C4849 /* GoogleService-Info.plist */; };
+		FB954BFE214DB86100A6934F /* MotionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954BFD214DB86100A6934F /* MotionExtensions.swift */; };
 		FBD0AC3B214D8AA000ED5B18 /* WifiScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AC3A214D8AA000ED5B18 /* WifiScanner.swift */; };
 		FBD0AC3D214D9DD500ED5B18 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AC3C214D9DD500ED5B18 /* Schema.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		FB4EC9CF214D6311004C4849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB4EC9D1214D6311004C4849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB4EC9D7214D6357004C4849 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB954BFD214DB86100A6934F /* MotionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionExtensions.swift; sourceTree = "<group>"; };
 		FBD0AC3A214D8AA000ED5B18 /* WifiScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiScanner.swift; sourceTree = "<group>"; };
 		FBD0AC3C214D9DD500ED5B18 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				FB4EC9C5214D630E004C4849 /* FirstViewController.swift */,
 				FBD0AC3C214D9DD500ED5B18 /* Schema.swift */,
 				FBD0AC3A214D8AA000ED5B18 /* WifiScanner.swift */,
+				FB954BFD214DB86100A6934F /* MotionExtensions.swift */,
 				FB4EC9C7214D630E004C4849 /* SecondViewController.swift */,
 				FB4EC9C9214D630E004C4849 /* Main.storyboard */,
 				FB4EC9CC214D6311004C4849 /* Assets.xcassets */,
@@ -227,6 +230,7 @@
 			files = (
 				FBD0AC3B214D8AA000ED5B18 /* WifiScanner.swift in Sources */,
 				FB4EC9C8214D630E004C4849 /* SecondViewController.swift in Sources */,
+				FB954BFE214DB86100A6934F /* MotionExtensions.swift in Sources */,
 				FB4EC9C4214D630E004C4849 /* AppDelegate.swift in Sources */,
 				FB4EC9C6214D630E004C4849 /* FirstViewController.swift in Sources */,
 				FBD0AC3D214D9DD500ED5B18 /* Schema.swift in Sources */,
