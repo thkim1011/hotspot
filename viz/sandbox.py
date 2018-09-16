@@ -4,23 +4,40 @@ import matplotlib.pyplot as plt
 
 import firebase_admin
 from firebase_admin import credentials, db
+from retreiver import Retreiver
 
-def get_data():
-    # Get from Realtime Database
-    cred = credentials.Certificate('../secrets/clean-sylph-151200-ac19c9e9e196.json')
-    #default_app = firebase_admin.initialize_app(cred)
+ret = Retreiver()
 
-    firebase_admin.initialize_app(cred, {
-            'databaseURL' : 'https://clean-sylph-151200.firebaseio.com'
-            })
+def ret_to_data(ret):
+    ret.update_data()
+    mru = ret.get_mru()
 
-    ref = db.reference()
+    # Normalize positions
 
-    data = ref.get()
+    mru[0, :] = (mru[0, :] - np.mean(mru[0, :])) / np.std(mru[0, :])
+    mru[1, :] = (mru[1, :] - np.mean(mru[1, :])) / np.std(mru[1, :])
 
-    data = [datum.split(',') for datum in data if datum is not None]
+    # Normalize strengths
+    mru[2, :] = (mru[2, :] - np.min(mru[2, :]) + 1)
+    mru[2, :] /= np.max(mru[2,:])
+    mru[2, :] *= 10
+    
+    return mru
 
-    return np.array(data).astype(float)
+def data_to_dist(data):
+    dist = []
+    for i in range(data.shape[1]):
+        datum = data[:, i]
+        strength = datum[2]
+        x = datum[0]
+        y = datum[1]
+        for j in range(int(strength)):
+            dist.append([x, y])
+
+    return np.array(dist).T
+
+data = ret_to_data(ret)
+data = data_to_dist(data)
 
 RECENCY_SIZE = 100
 mru = np.ones((2, RECENCY_SIZE))
@@ -34,21 +51,23 @@ def update_mru(data):
 
 def dist(n):
     # Generate random data from normal distribution, n points
+    strength = np.random.randint(1, 10, size=(1, n))
+    strength = np.vstack([strength, strength])
 
-    return np.random.randn(2, n)
+    return np.multiply(np.random.randn(2, n), strength)
 
-def kde(data):
+def kde(data, bw=None):
     # Run kde on set of 2-d points
 
-    X, Y = np.mgrid[-3:3:100j, -3:3:100j]
+    X, Y = np.mgrid[-5:5:100j, -5:5:100j]
     positions = np.vstack([X.ravel(), Y.ravel()])
-    kernel = gaussian_kde(data)
+    kernel = gaussian_kde(data, bw_method=bw)
     return np.reshape(kernel(positions).T, X.shape)
 
-def gen_heatmap(data):
+def gen_heatmap(data, bw=None):
     # generate and show heatmap
 
-    heatmap = kde(data)
+    heatmap = kde(data, bw=bw)
     plt.imshow(heatmap, cmap="inferno")
     plt.show()
 
