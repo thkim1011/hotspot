@@ -9,11 +9,15 @@
 import Foundation
 
 struct Datapoint : Codable {
-    var xpos : Double
-    var ypos : Double
-    var lat: Double
-    var lon: Double
+    var dist : Double
+    var heading: Double
     var ssid: String
     var strength: Double
+    var time: Double
+}
+
+struct AccPoint : Codable {
+    var xacc : Double
+    var yacc : Double
     var time: Double
 }
