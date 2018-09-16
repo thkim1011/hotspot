@@ -15,6 +15,7 @@ class SecondViewController: UIViewController, WKNavigationDelegate{
         return true
     }
     var webView: WKWebView!
+    var timer: Timer?
     
     override func loadView() {
         webView = WKWebView()
@@ -31,8 +32,10 @@ class SecondViewController: UIViewController, WKNavigationDelegate{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let url = URL(string: "http://192.168.43.9:5000/")!
-        webView.load(URLRequest(url: url))
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            let url = URL(string: "http://192.168.43.9:5000/")!
+            self?.webView.load(URLRequest(url: url))
+        }
     }
 
     override func didReceiveMemoryWarning() {
