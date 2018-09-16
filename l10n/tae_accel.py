@@ -13,12 +13,13 @@ firebase_admin.initialize_app(cred, {
 
 ref = db.reference()
 
-data = ref.get()['thk_accel']
+data = ref.get()['thk_accel2']
 data = [list(val.values()) for val in data.values()]
 data = np.array(data)
 
 ax = data[:, 0]
 ay = data[:, 1]
+t = data[:, 2] / 10e9
 
 # filter
 N = len(ax)
@@ -29,13 +30,27 @@ gaussian = np.exp(-(gx/sigma)**2/2)
 gaussian = gaussian / np.sum(gaussian)
 fax = np.convolve(ax, gaussian, mode="full")
 fay = np.convolve(ay, gaussian, mode="full")
+fax = ax
+fay = ay
 
 #plt.plot(result)
 #plt.plot(ax)
 #plt.show()
 
-dx = .5 * fax * .01**2
-dy = .5 * fay * .01**2
+#dx = .5 * np.multiply(fax[:-1], np.square(np.diff(t)))
+#dy = .5 * np.multiply(fay[:-1], np.square(np.diff(t)))
+
+#x = np.cumsum(dx)
+#y = np.cumsum(dy)
+
+dvx = np.multiply(fax[:-1], np.diff(t))
+dvy = np.multiply(fay[:-1], np.diff(t))
+
+vx = np.cumsum(dvx)
+vy = np.cumsum(dvy)
+
+dx = np.multiply(vx, np.diff(t))
+dy = np.multiply(vy, np.diff(t))
 
 x = np.cumsum(dx)
 y = np.cumsum(dy)

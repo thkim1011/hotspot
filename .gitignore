@@ -1,7 +1,9 @@
 venv/
 env/
-sandbox.py
 secrets/
 *.jpg
 *.png
 *.jpeg
+*.swp
+__pycache__/
+*.npy
