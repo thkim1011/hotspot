@@ -17,3 +17,8 @@ Hotspot is a cross-platform, distributed, mobile-based WiFi heatmapping applicat
 ## Running
 1) Download the iOS client onto your device
 2) Run python3 server.py on your computer.
+
+## Contributors
+@gkswamy98
+@thkim1011
+@dangeng
