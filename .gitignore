@@ -5,3 +5,5 @@ secrets/
 *.jpg
 *.png
 *.jpeg
+android/app/google-services.json
+__pycache__/
