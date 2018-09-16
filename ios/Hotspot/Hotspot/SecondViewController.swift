@@ -11,20 +11,28 @@ import WebKit
 
 class SecondViewController: UIViewController, WKNavigationDelegate{
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     var webView: WKWebView!
     
     override func loadView() {
         webView = WKWebView()
+        webView.isOpaque = false
         webView.navigationDelegate = self
         view = webView
+        view.backgroundColor = .black
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "http://192.168.43.9")!
-        webView.load(URLRequest(url: url))
-        
+        self.navigationItem.title = "Map"
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let url = URL(string: "http://192.168.43.9:5000/")!
+        webView.load(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {

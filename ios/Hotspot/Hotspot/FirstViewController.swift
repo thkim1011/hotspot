@@ -13,11 +13,14 @@ import CodableFirebase
 import CoreMotion
 
 class FirstViewController: UIViewController {
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     // Connections to Storyboard
     @IBOutlet weak var totallabel: UILabel!
     @IBOutlet weak var deltalabel: UILabel!
-    @IBOutlet weak var latlabel: UILabel!
-    @IBOutlet weak var lonlabel: UILabel!
+    @IBOutlet weak var avghlabel: UILabel!
+    @IBOutlet weak var headinglabel: UILabel!
     @IBOutlet weak var ssidlabel: UILabel!
     @IBOutlet weak var slabel: UILabel!
     // Variables
@@ -36,6 +39,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ssid = WifiScanner.getSSID()
         // Get location services setup
         Locator.requestAuthorizationIfNeeded(.always)
         // Setup Database
@@ -51,7 +55,7 @@ class FirstViewController: UIViewController {
                 self.deltaDist = Double(truncating: pedData.distance!) - self.totalDist
                 self.totalDist = Double(truncating: pedData.distance!)
                 self.ssid = WifiScanner.getSSID()
-                self.pushData()
+                //self.pushData()
             }
         })
         // Start location updates
@@ -73,12 +77,12 @@ class FirstViewController: UIViewController {
     
     func updateLabels() {
         DispatchQueue.main.async {
-            self.totallabel.text = "total: " + String(self.totalDist)
-            self.deltalabel.text = "delta: " + String(self.deltaDist)
-            self.latlabel.text = "avgh: " + String(self.heading)
-            self.lonlabel.text = "heading: " + String(self.avgHeading)
-            self.ssidlabel.text = "ssid: " + String(self.ssid)
-            self.slabel.text = "signal: " + String(self.strength)
+            self.totallabel.text = "Total Distance: \n" + String(format: "%.1f", self.totalDist)
+            self.deltalabel.text = "Distance: \n" + String(format: "%.1f", self.deltaDist)
+            self.avghlabel.text = "Avg. Heading: \n" + String(format: "%.1f", self.avgHeading)
+            self.headinglabel.text = "Heading: \n" + String(format: "%.1f", self.heading)
+            self.ssidlabel.text = "SSID: \n" + String(self.ssid)
+            self.slabel.text = "Signal: \n" + String(self.strength)
         }
     }
     
