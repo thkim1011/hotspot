@@ -19,28 +19,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="x: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="total:" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="16" y="185" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="y: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fwD-e1-9tz">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="delta: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fwD-e1-9tz">
                                 <rect key="frame" x="16" y="223" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="lat: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xNG-EJ-mMF">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="avgh: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xNG-EJ-mMF">
                                 <rect key="frame" x="16" y="261" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="lon:" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-Ng-NLh">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="heading:" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-Ng-NLh">
                                 <rect key="frame" x="16" y="299" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -54,7 +54,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="s: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0vp-A2-dzR">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="signal: " lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0vp-A2-dzR">
                                 <rect key="frame" x="16" y="375" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -87,12 +87,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="latlabel" destination="xNG-EJ-mMF" id="Yzg-mf-HUP"/>
-                        <outlet property="lonlabel" destination="jf2-Ng-NLh" id="2Kz-hA-b2I"/>
-                        <outlet property="slabel" destination="0vp-A2-dzR" id="fiJ-XV-LVb"/>
-                        <outlet property="ssidlabel" destination="mI3-wa-IvQ" id="UOH-CZ-JJk"/>
-                        <outlet property="xlabel" destination="KQZ-1w-vlD" id="ZFK-5G-Qlz"/>
-                        <outlet property="ylabel" destination="fwD-e1-9tz" id="zsr-7o-7Kz"/>
+                        <outlet property="deltalabel" destination="fwD-e1-9tz" id="0dN-4Z-NTm"/>
+                        <outlet property="latlabel" destination="xNG-EJ-mMF" id="HsM-1i-k1r"/>
+                        <outlet property="lonlabel" destination="jf2-Ng-NLh" id="4XP-by-DS2"/>
+                        <outlet property="slabel" destination="0vp-A2-dzR" id="IjZ-Lx-vYs"/>
+                        <outlet property="ssidlabel" destination="mI3-wa-IvQ" id="4AN-M5-7gx"/>
+                        <outlet property="totallabel" destination="KQZ-1w-vlD" id="L4e-EQ-INt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

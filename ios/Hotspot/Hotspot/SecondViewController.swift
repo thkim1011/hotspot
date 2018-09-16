@@ -21,22 +21,8 @@ class SecondViewController: UIViewController, WKNavigationDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.google.com/")!
+        let url = URL(string: "http://192.168.43.9")!
         webView.load(URLRequest(url: url))
-//        let mapURL = URL(string: "https://hackmit.org/")
-//        if let unwrapped = mapURL {
-//            let request = URLRequest(url: unwrapped)
-//            let session = URLSession.shared
-//            _ = session.dataTask(with: request) { (data, response, error) in
-//                if error == nil {
-//                    self.webView.load(request)
-//                } else {
-//                    print(error!)
-//                }
-//            }
-//        } else {
-//            print("fuck")
-//        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
