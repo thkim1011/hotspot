@@ -55,7 +55,7 @@ class FirstViewController: UIViewController {
                 self.deltaDist = Double(truncating: pedData.distance!) - self.totalDist
                 self.totalDist = Double(truncating: pedData.distance!)
                 self.ssid = WifiScanner.getSSID()
-                //self.pushData()
+                self.pushData()
             }
         })
         // Start location updates
