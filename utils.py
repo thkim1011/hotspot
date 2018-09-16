@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 def compute_linear_pos(accel, time):
     """
@@ -17,8 +17,7 @@ def compute_positions(accel_x, accel_y, time):
     compute the relative positions of the "particle".
     In addition use signal processing to smooth out. 
     """
-    return compute_linear_pos(accel_x, time),
-            compute_linear_pos(accel_y, time)
+    return compute_linear_pos(accel_x, time), compute_linear_pos(accel_y, time)
 
 def calibrate_gps(pos_x, pos_y, gps_x, gps_y, time):
     """

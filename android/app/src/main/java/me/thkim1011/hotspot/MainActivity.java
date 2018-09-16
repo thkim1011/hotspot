@@ -7,8 +7,15 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -21,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        database = FirebaseDatabase.getInstance().getReference("thk_accel2");
     }
 
     @Override
@@ -32,6 +40,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        TextView accel_x = (TextView) findViewById(R.id.accel_x);
+        TextView accel_y = (TextView) findViewById(R.id.accel_y);
 
+        accel_x.setText("" + event.values[0]);
+        accel_y.setText("" + event.values[1]);
+        DatabaseReference node = database.push();
+        node.child("time").setValue(event.timestamp);
+        node.child("accel_x").setValue(event.values[0]);
+        node.child("accel_y").setValue(event.values[1]);
     }
+
 }

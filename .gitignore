@@ -7,3 +7,4 @@ secrets/
 *.swp
 __pycache__/
 *.npy
+android/app/google-services.json

@@ -11,34 +11,31 @@ import WebKit
 
 class SecondViewController: UIViewController, WKNavigationDelegate{
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     var webView: WKWebView!
+    var timer: Timer?
     
     override func loadView() {
         webView = WKWebView()
+        webView.isOpaque = false
         webView.navigationDelegate = self
         view = webView
+        view.backgroundColor = .black
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.google.com/")!
-        webView.load(URLRequest(url: url))
-//        let mapURL = URL(string: "https://hackmit.org/")
-//        if let unwrapped = mapURL {
-//            let request = URLRequest(url: unwrapped)
-//            let session = URLSession.shared
-//            _ = session.dataTask(with: request) { (data, response, error) in
-//                if error == nil {
-//                    self.webView.load(request)
-//                } else {
-//                    print(error!)
-//                }
-//            }
-//        } else {
-//            print("fuck")
-//        }
-        
+        self.navigationItem.title = "Map"
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            let url = URL(string: "http://192.168.43.9:5000/")!
+            self?.webView.load(URLRequest(url: url))
+        }
     }
 
     override func didReceiveMemoryWarning() {
