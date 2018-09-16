@@ -1,9 +1,10 @@
 venv/
 env/
-sandbox.py
 secrets/
 *.jpg
 *.png
 *.jpeg
-android/app/google-services.json
+*.swp
 __pycache__/
+*.npy
+android/app/google-services.json
